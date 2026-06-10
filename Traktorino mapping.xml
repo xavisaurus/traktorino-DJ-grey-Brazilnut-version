@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapper device="SIMPLE_MIDI_9025_29908" version="850" date="2026-06-11">
+	<map value="CROSSFADER" action="shift ? smart_fader on &amp; crossfader : smart_fader off &amp; crossfader" />
+	<map value="LEFT_VOLUME" action="deck 1 level" />
+	<map value="RIGHT_VOLUME" action="deck 2 level" />
+	<map value="LEFT_FILTER" action="deck 1 filter" />
+	<map value="RIGHT_FILTER" action="deck 2 filter" />
+	<map value="LEFT_EQ_LOW" action="deck 1 eq_low" />
+	<map value="LEFT_EQ_MID" action="deck 1 eq_mid" />
+	<map value="LEFT_EQ_HIGH" action="deck 1 eq_high" />
+	<map value="RIGHT_EQ_LOW" action="deck 2 eq_low" />
+	<map value="RIGHT_EQ_MID" action="deck 2 eq_mid" />
+	<map value="RIGHT_EQ_HIGH" action="deck 2 eq_high" />
+	<map value="LEFT_GAIN" action="deck 1 gain" />
+	<map value="RIGHT_GAIN" action="deck 2 gain" />
+	<map value="MASTER_VOLUME" action="system_volume" />
+	<map value="BROWSER_ENCODER" action="shift ? param_greater 0 ? deck active loop_double : deck active loop_half : browser_scroll" />
+	<map value="BROWSER_ENTER" action="shift ? browser_window &apos;folders&apos; : holding ? browser_window &apos;folders&apos; ? browser_folder : browser_window &apos;songs&apos; : browser_window &apos;folders&apos; ? browser_enter : browser_window &apos;folders&apos;" />
+	<map value="SHIFT" action="shift" />
+	<map value="LEFT_PLAY" action="shift ? down ? deck 1 play ? set &apos;$left_shiftplay_was_playing&apos; 1 &amp; deck 1 goto_cue &amp; deck 1 play : set &apos;$left_shiftplay_was_playing&apos; 0 &amp; deck 1 cue_play : var &apos;$left_shiftplay_was_playing&apos; 1 ? nothing : deck 1 cue_stop : deck 1 pioneer_play" />
+	<map value="LEFT_CUE" action="shift ? down ? deck 1 set_cue : nothing : deck 1 pioneer_cue" />
+	<map value="LEFT_SYNC" action="shift ? down ? deck 1 pitch_reset : nothing : deck 1 sync" />
+	<map value="LEFT_HEADPHONE_CUE" action="shift ? down ? deck 1 key_lock : nothing : deck 1 pfl" />
+	<map value="LEFT_FILTER_BUTTON" action="shift ? down ? deck 1 filter 50% &amp; deck 1 filter_activate off : nothing : deck 1 filter_activate" />
+	<map value="LEFT_LOAD" action="shift ? down ? deck 1 unload : nothing : deck 1 load" />
+	<map value="RIGHT_PLAY" action="shift ? down ? deck 2 play ? set &apos;$right_shiftplay_was_playing&apos; 1 &amp; deck 2 goto_cue &amp; deck 2 play : set &apos;$right_shiftplay_was_playing&apos; 0 &amp; deck 2 cue_play : var &apos;$right_shiftplay_was_playing&apos; 1 ? nothing : deck 2 cue_stop : deck 2 pioneer_play" />
+	<map value="RIGHT_CUE" action="shift ? down ? deck 2 set_cue : nothing : deck 2 pioneer_cue" />
+	<map value="RIGHT_SYNC" action="shift ? down ? deck 2 pitch_reset : nothing : deck 2 sync" />
+	<map value="RIGHT_HEADPHONE_CUE" action="shift ? down ? deck 2 key_lock : nothing : deck 2 pfl" />
+	<map value="RIGHT_FILTER_BUTTON" action="shift ? down ? deck 2 filter 50% &amp; deck 2 filter_activate off : nothing : deck 2 filter_activate" />
+	<map value="RIGHT_LOAD" action="shift ? down ? deck 2 unload : nothing : deck 2 load" />
+	<map value="LED_LEFT_CUE" action="deck 1 cue" />
+	<map value="LED_RIGHT_CUE" action="deck 2 cue" />
+	<map value="LED_LEFT_SYNC" action="deck 1 sync" />
+	<map value="LED_RIGHT_SYNC" action="deck 2 sync" />
+	<map value="LED_LEFT_HEADPHONE_CUE" action="deck 1 pfl" />
+	<map value="LED_RIGHT_HEADPHONE_CUE" action="deck 2 pfl" />
+	<map value="LED_LEFT_FILTER_BUTTON" action="deck 1 filter_activate" />
+	<map value="LED_RIGHT_FILTER_BUTTON" action="deck 2 filter_activate" />
+	<map value="LEFT_VU" action="deck 1 play ? deck 1 get_level &amp; param_multiply 1.10 : get constant 0.0" />
+	<map value="RIGHT_VU" action="deck 2 play ? deck 2 get_level &amp; param_multiply 1.10 : get constant 0.0" />
+	<map value="ONINIT" action="deck 1 filter_activate off &amp; deck 2 filter_activate off" />
+	<map value="ONEXIT" action="deck 1 filter_activate on &amp; deck 2 filter_activate on" />
+	<map value="LED_LEFT_PLAY" action="deck 1 play ? on : off" />
+	<map value="LED_RIGHT_PLAY" action="deck 2 play ? on: off" />
+</mapper>

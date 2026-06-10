@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<device name="SIMPLE_MIDI_9025_29908"
+        description="Traktorino"
+        author="Xavier Tong"
+        type="MIDI"
+        version="850"
+        decks="2"
+        vid="0x2341"
+        pid="0x74D4">
+
+  <!--
+    Final Traktorino VirtualDJ device definition.
+
+    Stable identity:
+    - name="SIMPLE_MIDI_9025_29908" matches VirtualDJ's original internal MIDI identity.
+    - description="Traktorino" gives the friendly display name.
+
+    Detected generic layout:
+    - 0-BUTTON##   = buttons / button LEDs
+    - 0-ENCODER14  = browser encoder
+    - 10-SLIDER##  = faders, knobs and sliders
+  -->
+
+  <!-- Mixer controls detected as 10-SLIDER## -->
+  <slider name="CROSSFADER" cc="0x01" channel="10" />
+
+  <slider name="LEFT_VOLUME" cc="0x02" channel="10" deck="1" />
+  <slider name="LEFT_FILTER" cc="0x03" channel="10" deck="1" />
+  <slider name="LEFT_EQ_LOW" cc="0x04" channel="10" deck="1" />
+  <slider name="LEFT_EQ_MID" cc="0x05" channel="10" deck="1" />
+  <slider name="LEFT_EQ_HIGH" cc="0x06" channel="10" deck="1" />
+  <slider name="LEFT_GAIN" cc="0x07" channel="10" deck="1" />
+
+  <slider name="RIGHT_VOLUME" cc="0x08" channel="10" deck="2" />
+  <slider name="RIGHT_FILTER" cc="0x09" channel="10" deck="2" />
+  <slider name="RIGHT_EQ_LOW" cc="0x0A" channel="10" deck="2" />
+  <slider name="RIGHT_EQ_MID" cc="0x0B" channel="10" deck="2" />
+  <slider name="RIGHT_EQ_HIGH" cc="0x0C" channel="10" deck="2" />
+  <slider name="RIGHT_GAIN" cc="0x0D" channel="10" deck="2" />
+
+  <slider name="MASTER_VOLUME" cc="0x0E" channel="10" />
+
+  <!-- Encoder detected as 0-ENCODER14 -->
+  <encoder name="BROWSER_ENCODER" cc="0x0E" channel="0" />
+
+  <!-- Buttons detected as 0-BUTTON##. autoled creates LED_<button name>. -->
+  <button name="LEFT_FILTER_BUTTON" note="0x24" channel="0" autoled="true" deck="1" />
+  <button name="LEFT_HEADPHONE_CUE" note="0x25" channel="0" autoled="true" deck="1" />
+  <button name="LEFT_PLAY" note="0x26" channel="0" autoled="true" deck="1" />
+  <button name="LEFT_CUE" note="0x27" channel="0" autoled="true" deck="1" />
+  <button name="LEFT_SYNC" note="0x28" channel="0" autoled="true" deck="1" />
+  <button name="LEFT_LOAD" note="0x29" channel="0" deck="1" />
+
+  <button name="SHIFT" note="0x2A" channel="0" />
+
+  <button name="RIGHT_LOAD" note="0x2B" channel="0" deck="2" />
+  <button name="RIGHT_SYNC" note="0x2C" channel="0" autoled="true" deck="2" />
+  <button name="RIGHT_CUE" note="0x2D" channel="0" autoled="true" deck="2" />
+  <button name="RIGHT_PLAY" note="0x2E" channel="0" autoled="true" deck="2" />
+  <button name="RIGHT_HEADPHONE_CUE" note="0x2F" channel="0" autoled="true" deck="2" />
+  <button name="RIGHT_FILTER_BUTTON" note="0x30" channel="0" autoled="true" deck="2" />
+
+  <button name="BROWSER_ENTER" note="0x31" channel="0" />
+
+  <!-- VU meter outputs. Firmware accepts 0-7 or 0-127, but this caps at 0-7. -->
+  <bar name="LEFT_VU" cc="0x0C" channel="0" min="0x00" max="0x07" fill="yes" deck="1" />
+  <bar name="RIGHT_VU" cc="0x0D" channel="0" min="0x00" max="0x07" fill="yes" deck="2" />
+
+</device>
